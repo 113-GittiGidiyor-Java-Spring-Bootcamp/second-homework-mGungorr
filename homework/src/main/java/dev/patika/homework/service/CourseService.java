@@ -4,10 +4,12 @@ import dev.patika.homework.model.Courses;
 import dev.patika.homework.repository.CourseRepository;
 import dev.patika.homework.repository.CrudRepository;
 import dev.patika.homework.utils.EntityManagerUtils;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@Service
 public class CourseService implements CrudRepository<Courses>, CourseRepository {
 
     EntityManager em = EntityManagerUtils.getEntityManager("mysqlPU");

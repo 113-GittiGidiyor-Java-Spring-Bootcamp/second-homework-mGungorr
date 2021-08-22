@@ -1,7 +1,9 @@
 package dev.patika.homework.controller;
 
 import dev.patika.homework.model.Courses;
+import dev.patika.homework.model.Instructors;
 import dev.patika.homework.service.CourseService;
+import dev.patika.homework.service.InstructorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,17 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/course")
-public class CourseController {
-    CourseService courseService;
+@RequestMapping("/api/instructor")
+public class InstructorController {
+    InstructorService instructorService;
 
-    @Autowired
-    public CourseController(CourseService courseService) {
-        this.courseService = courseService;
+    public InstructorController(InstructorService instructorService) {
+        this.instructorService = instructorService;
     }
 
-    @GetMapping("/courses")
-    public ResponseEntity<List<Courses>> findAll(){
-        return new ResponseEntity<>(courseService.findAll(), HttpStatus.OK);
+    @GetMapping("/instructors")
+    public ResponseEntity<List<Instructors>> findAll(){
+        return new ResponseEntity<>(instructorService.findAll(),HttpStatus.OK);
     }
 }
